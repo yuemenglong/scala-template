@@ -1,6 +1,6 @@
 package io.github.yuemenglong.template
 
-import io.github.yuemenglong.template.Renderable.<
+import io.github.yuemenglong.template.HTML.<
 
 class Element(tag: String,
               props: Map[String, String] = Map(),
@@ -33,17 +33,18 @@ class Element(tag: String,
 //  override def renderToHtml(): String = render().renderToHtml()
 //}
 
-//noinspection LanguageFeature,ScalaUnnecessaryParentheses
+//noinspection ScalaUnnecessaryParentheses
 object Element {
   def main(args: Array[String]): Unit = {
-    import io.github.yuemenglong.template.Renderable.convertToRenderable
+    import io.github.yuemenglong.template.HTML.convertToRenderable
     val html = <.html.>(
-      <.head >,
-      <.body > (
-        <.div(id = "id", className = "className") > (
-          <.span > ("span的内容")
-          )
-        )
+      <.head.>,
+      <.body.>(
+        <.div(id = "id", className = "className").>(
+          <.span.>("span的内容")
+        ),
+        <.div.>
+      )
     )
     println(html)
   }
