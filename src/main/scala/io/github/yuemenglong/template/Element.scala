@@ -1,6 +1,6 @@
 package io.github.yuemenglong.template
 
-import io.github.yuemenglong.template.HTML.<
+import io.github.yuemenglong.template.HTML._
 
 class Element(tag: String,
               props: Map[String, String] = Map(),
@@ -36,14 +36,14 @@ class Element(tag: String,
 //noinspection ScalaUnnecessaryParentheses
 object Element {
   def main(args: Array[String]): Unit = {
-    import io.github.yuemenglong.template.HTML.convertToRenderable
     val html = <.html.>(
       <.head.>,
       <.body.>(
         <.div(id = "id", className = "className").>(
-          <.span.>("span的内容")
+          <.span.>("span的内容"),
+          Array(1, 2, 3).map(i => <.span.>(i))
         ),
-        <.div.>
+        <.div.>("最后一个div")
       )
     )
     println(html)
