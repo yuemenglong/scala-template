@@ -95,12 +95,13 @@ object HTML {
     def form: Renderable = new Element("form")
 
     def script(id: S = null, className: S = null, style: M = Map(),
-               src: S = null
+               src: S = null, ty: S = null,
               ): Renderable = {
       new Element("script", style = style, props = Map(
         "id" -> id,
         "class" -> className,
         "src" -> src,
+        "type" -> ty,
       ))
     }
 
