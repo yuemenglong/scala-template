@@ -1,7 +1,5 @@
 package io.github.yuemenglong.template
 
-import io.github.yuemenglong.template.HTML._
-
 class Element(tag: String,
               props: Map[String, String] = Map(),
               style: Map[String, String] = Map(),
@@ -25,6 +23,8 @@ class Element(tag: String,
     this.children = cs.toArray
     this
   }
+
+  override def > /**/ : Renderable = this
 }
 
 //abstract case class Component() extends Renderable {
@@ -33,20 +33,4 @@ class Element(tag: String,
 //  override def renderToHtml(): String = render().renderToHtml()
 //}
 
-//noinspection ScalaUnnecessaryParentheses
-object Element {
-  def main(args: Array[String]): Unit = {
-    val html = <.html.>(
-      <.head.>,
-      <.body.>(
-        <.div(id = "id", className = "className").>(
-          <.span.>("span的内容"),
-          Array(1, 2, 3).map(i => <.span.>(i))
-        ),
-        <.div.>("最后一个div")
-      )
-    )
-    println(html)
-  }
-}
 

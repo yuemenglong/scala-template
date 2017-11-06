@@ -2,9 +2,9 @@ package io.github.yuemenglong.template
 
 import java.io.FileOutputStream
 
-import io.github.yuemenglong.template.HTML._
-
 import scala.io.Source
+
+import io.github.yuemenglong.template.Converts._
 
 /**
   * Created by <yuemenglong@126.com> on 2017/11/2.
@@ -24,7 +24,7 @@ object Test {
         <.script(src = "https://cdn.bootcss.com/jquery/3.2.1/jquery.js").>,
         <.script(src = "https://unpkg.com/react/umd/react.development.js").>,
         <.script(src = "https://unpkg.com/react-dom/umd/react-dom.development.js").>,
-        <.script(src="https://cdn.bootcss.com/babel-standalone/6.25.0/babel.min.js").>,
+        <.script(src = "https://cdn.bootcss.com/babel-standalone/6.25.0/babel.min.js").>,
         <.link(ty = "text/css", rel = "stylesheet", href = "https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css")
       ),
       <.body.>(
@@ -35,11 +35,12 @@ object Test {
           objs.map(o => <.tr.>(
             <.td.>(o.id),
             <.td.>(o.name),
-            <.td.>(<.a(data = o.id).>("更新"))
+            <.td.>(<.a(attrs = Map("data" -> o.id)).>("更新"))
           ))
         ),
         <.div(id = "root").>,
-        <.script(ty = "text/babel").>(jsx)
+        <.script(ty = "text/babel").>(jsx),
+        <.div(id = "na").>,
       ),
     )
     new FileOutputStream("scala.html").write(html.toString.getBytes())
