@@ -167,6 +167,7 @@ object < {
           attrs: M = Map(),
           ty: S = null,
           name: S = null,
+          value: S = null,
          ): Renderable = {
     new Element("input",
       style = style,
@@ -175,6 +176,7 @@ object < {
         "class" -> className,
         "type" -> ty,
         "name" -> name,
+        "value" -> value,
       ) ++ attrs)
   }
   def input: Renderable = new Element("input")

@@ -73,6 +73,7 @@ object Builder {
       TagDef("input", Array(
         AttrDef("ty", "type"),
         AttrDef("name"),
+        AttrDef("value"),
       )),
       TagDef("button", Array(
       )),
