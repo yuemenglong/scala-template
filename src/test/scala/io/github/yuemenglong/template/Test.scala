@@ -3,8 +3,8 @@ package io.github.yuemenglong.template
 import java.io.FileOutputStream
 
 import scala.io.Source
-
 import io.github.yuemenglong.template.Converts._
+import io.github.yuemenglong.template.HTML.<
 
 /**
   * Created by <yuemenglong@126.com> on 2017/11/2.
