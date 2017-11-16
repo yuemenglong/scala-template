@@ -8,12 +8,12 @@ class Element(tag: String,
 
   override def renderToHtml(): String = {
     val attrStr = props.filter(_._2 != null).map { case (name, value) => s"""$name='$value'""" }.mkString(" ")
-    val styleStr = style.map { case (name, value) => s"""$name:$value""" }.mkString(":")
+    val styleStr = style.map { case (name, value) => s"""$name:$value""" }.mkString(";")
     val attrs = (attrStr, styleStr) match {
       case ("", "") => ""
-      case ("", _) => s" style:'$styleStr'"
+      case ("", _) => s" style='$styleStr'"
       case (_, "") => s" $attrStr"
-      case (_, _) => s" $attrStr style:'$styleStr'"
+      case (_, _) => s" $attrStr style='$styleStr'"
     }
     val content = children.map(_.renderToHtml()).mkString("")
     s"""<$tag$attrs>$content</$tag>"""
