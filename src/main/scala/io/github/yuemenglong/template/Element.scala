@@ -20,7 +20,7 @@ class Element(tag: String,
   }
 
   override def >(cs: Renderable*): Renderable = {
-    this.children = cs.toArray
+    this.children = cs.filter(_ != null).toArray
     this
   }
 
