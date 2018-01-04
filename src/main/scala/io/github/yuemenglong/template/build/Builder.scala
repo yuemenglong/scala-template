@@ -80,6 +80,7 @@ object Builder {
       TagDef("form", Array(
         AttrDef("action"),
         AttrDef("method"),
+        AttrDef("enctype"),
       )),
       TagDef("img", Array(
         AttrDef("src"),
